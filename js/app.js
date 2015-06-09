@@ -1,41 +1,27 @@
 $(document).ready(function(){
-	$(sketchPad).html("");
+	$('.sketchPad').html("");
 
 	//User sets the sketch pad width
-	var gridWidth = prompt('How many columns/rows do you want your grid to be?');
+	var gridWidth = prompt('How many columns/rows do you want your grid to be? (1-100)');
 
-	//Don't want the grid to be too large
+	//Create grid if user puts in reasonable size
 	if (gridWidth >= 1 && gridWidth <= 100) {
+		createGrid(gridWidth);
+	} else {
+		alert('You must pick a number between 1-100.')
+	}
+
+	//Create Grid Function
+
+	function createGrid(gridSize) {
+		for (var i = 1; i <= gridSize; i++) {
+			console.log(i);
+			$('.sketchPad').append('<div class="grid-square"></div>');
+		};
 
 		
+	}
 
-	};
-
-	$('.gridSquare').mouseenter(function(){
-			switch(option){
-				case 1:
-					$(this).addClass('gridSquareLit');
-					break;
-				case 2:
-					var currentOpacity = $(this).css('opacity');
-					if(currentOpacity > 0){
-						$(this).css('opacity', currentOpacity - 0.1);
-					}
-					break;
-				case 3:
-					/*
-						Animate to 0% opacity over 200ms, then back to 100%
-						opacity over 800ms when cursor leaves square.
-						This "case 3" was added for fun. The Odin Project
-						does not ask you to do this option.
-					*/
-					$(this).fadeTo(100,0);
-					$(this).mouseleave(function(){
-						$(this).fadeTo(400,1);
-					});
-					break;
-			}
-		});
 
 
 

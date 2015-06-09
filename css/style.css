@@ -1,0 +1,14 @@
+/*** Sketch Pad Styling ***/
+
+.sketchPad {
+ 	margin: 25px auto;
+ 	height: 750px;
+ 	width: 750px;
+}
+
+.grid-square {
+	width: 50px;
+	height: 50px;
+	background-color: red;
+}
+
