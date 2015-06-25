@@ -6,11 +6,13 @@ $(document).ready(function(){
 
 	//User sets the sketch pad width
 	function getUserSize() {
-		 gridWidth = prompt('How many columns/rows do you want your grid to be? (1-100)');
+		 gridWidth = prompt('How many columns/rows do you want your grid to be? (1-100) Leave blank and click OK for default size.');
 
 		//Create grid if user puts in reasonable size
 		if (gridWidth >= 1 && gridWidth <= 100) {
 			createGrid(gridWidth);
+		} else if (gridWidth === "") {
+			createGrid(50);
 		} else {
 			alert('You must pick a number between 1-100.');
 			getUserSize();
@@ -24,8 +26,31 @@ $(document).ready(function(){
 	});
 
 	//Rainbow Button
+	$('.random').click(function(){
+		$('.sketchPad').html("");
+		getUserSize();
 
-	//Lighten Button
+		$('.grid-square').hover(function(){
+			$(this).css('background-color', getRandomColor());
+		});
+
+	});
+
+	//Darken Button
+	$('.opacity').click(function(){
+		$('.sketchPad').html("");
+		getUserSize();
+
+		var currentOpacity = $('.grid-square').css('opacity');
+
+		$(".grid-square").hover(function() {
+			$(this).css('background-color','');
+			if(currentOpacity > 0){
+    			$(this).css('opacity', currentOpacity - 0.1);
+    		}
+  		});
+
+	});
 
 	//Trail Button
 
@@ -50,6 +75,16 @@ $(document).ready(function(){
   		});
 	}
 
+	//Random Color Generator Function
+	function getRandomColor() {
+	    var letters = '0123456789ABCDEF'.split('');
+	    var color = '#';
+	    for (var i = 0; i < 6; i++ ) {
+	        color += letters[Math.floor(Math.random() * 16)];
+	    }
+	    return color;
+	}
+
 
 
 
@@ -58,3 +93,5 @@ $(document).ready(function(){
 
 
 })
+
+
