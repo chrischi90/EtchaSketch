@@ -53,6 +53,22 @@ $(document).ready(function(){
 	});
 
 	//Trail Button
+	$('.trail').click(function(){
+		$('.sketchPad').html("");
+		getUserSize();
+
+		$(".grid-square").hover(function() {
+			$(this).css('background-color','');
+			$(this).fadeTo(100,0);
+			$(this).mouseleave(function(){
+				$(this).fadeTo(400,1);
+			});
+  		});
+
+
+
+	});
+
 
 	//Clear Button
 	$(".clear").click(function(){
