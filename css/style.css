@@ -1,6 +1,23 @@
+body {
+	font-family: 'Roboto', sans-serif;
+	color: #FFF;
+	background-color: #DB4F4F;
+}
+
 header,
 .navbar {
 	text-align: center;
+}
+
+/*** Button Styling ***/
+
+button {
+	border-radius: 5px;
+	background-color: #898989;
+}
+
+button:hover {
+	background-color: #B2B2B2;
 }
 
 /*** Sketch Pad Styling ***/
